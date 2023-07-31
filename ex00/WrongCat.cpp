@@ -38,6 +38,6 @@ WrongCat::~WrongCat() {
 
 // Member Function
 void WrongCat::makeSound() const {
-	std::cout << "Meow!!!    ≽^•⩊•^≼"
+	std::cout << "WRONG MEOWW!!   ≽^•⩊•^≼"
 			  << std::endl;
 }

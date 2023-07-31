@@ -17,7 +17,14 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+void check_leak(void) {
+	system("leaks ex00");
+}
+
 int main() {
+
+	atexit(check_leak);
+
 	std::cout << "======= basic test =======" << std::endl;
 
 	std::cout << "======= dog =======" << std::endl;
@@ -77,6 +84,8 @@ int main() {
 	delete wrong_meta;
 	delete w_cat1;
 	delete w_cat2;
+
+	system("leaks ex00");
 	std::cout << "=========================" << std::endl << std::endl;
 
 	return (0);
