@@ -28,7 +28,7 @@ public:
 
 	WrongAnimal &operator=(const WrongAnimal &wrong_animal);
 
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
 	// Member Functions
 	std::string getType(void) const;
