@@ -19,6 +19,9 @@ RM := rm -f
 all : $(NAME)
 
 SRCS := \
+	Animal.cpp \
+	Cat.cpp \
+	Dog.cpp \
 	main.cpp
 
 OBJS := \

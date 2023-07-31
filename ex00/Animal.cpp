@@ -10,4 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 
+// Orthodox Canonical Form
+Animal::Animal() : _type("Animal") {
+	std::cout << "Animal Default constructor called"
+			  << std::endl;
+}
+
+Animal::Animal(const Animal &animal) : _type(animal._type) {
+	std::cout << "Animal Copy constructor called"
+			  << std::endl;
+}
+
+Animal &Animal::operator=(const Animal &animal) {
+	if (this != &animal)
+		(*this) = animal;
+	return (*this);
+}
+
+Animal::~Animal() {
+	std::cout << "Animal Destructor called"
+			  << std::endl;
+}
+
+// Member Function
+std::string Animal::getType() const {
+	return (this->_type);
+}
+
+void Animal::makeSound() const {
+	std::cout << "< Animal Sound >"
+			  << std::endl;
+}
