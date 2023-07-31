@@ -54,7 +54,7 @@ int main() {
 	delete i;
 	std::cout << "=========================" << std::endl << std::endl;
 
-	system("leaks ex01");
+	system("leaks ex02");
 
 	std::cout << "======= dog cat compare =======" << std::endl;
 	std::cout << "==== dog ====" << std::endl;
@@ -67,7 +67,7 @@ int main() {
 
 	delete dog;
 
-	system("leaks ex01");
+	system("leaks ex02");
 
 	std::cout << "=========================" << std::endl << std::endl;
 	std::cout << "==== cat ====" << std::endl;
@@ -80,7 +80,7 @@ int main() {
 
 	delete cat;
 
-	system("leaks ex01");
+	system("leaks ex02");
 
 	std::cout << "=========================" << std::endl << std::endl;
 
@@ -98,7 +98,7 @@ int main() {
 	for (int(i) = 0; i < num; ++i) {
 		delete animal_list[i];
 	}
-	system("leaks ex01");
+	system("leaks ex02");
 	std::cout << "=========================" << std::endl << std::endl;
 
 //	Animal test;
