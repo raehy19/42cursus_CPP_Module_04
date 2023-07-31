@@ -84,5 +84,22 @@ int main() {
 
 	std::cout << "=========================" << std::endl << std::endl;
 
+	std::cout << "======= Animal List =======" << std::endl;
+	int num = 10;
+
+	const Animal *animal_list[num];
+	for (int(i) = 0; i < num; ++i) {
+		if (i % 2)
+			animal_list[i] = new Cat();
+		else
+			animal_list[i] = new Dog();
+	}
+	std::cout << "==== delete ====" << std::endl;
+	for (int(i) = 0; i < num; ++i) {
+		delete animal_list[i];
+	}
+	system("leaks ex01");
+	std::cout << "=========================" << std::endl << std::endl;
+
 	return (0);
 }
