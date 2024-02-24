@@ -20,21 +20,21 @@ MateriaSource::MateriaSource(void) {
 }
 
 // 복사 생성자
-MateriaSource::MateriaSource(const MateriaSource &obj) {
-	*this = obj;
+MateriaSource::MateriaSource(const MateriaSource &materiaSource) {
+	*this = materiaSource;
 }
 
 // 대입 연산자 오버로딩
-MateriaSource &MateriaSource::operator=(const MateriaSource &obj) {
-	if (this == &obj)
+MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource) {
+	if (this == &materiaSource)
 		return (*this);
 
 	for (int i = 0; i < 4; i++) {
 		delete this->_slot[i];
-		if (obj.getSlot(i) == NULL)
-			this->_slot[i] = NULL;
-		else
-			this->_slot[i] = obj.getSlot(i)->clone();
+		this->_slot[i] = NULL;
+
+		if (materiaSource.getSlot(i))
+			this->_slot[i] = materiaSource.getSlot(i)->clone();
 	}
 	return (*this);
 }
@@ -42,8 +42,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj) {
 
 // 소멸자
 MateriaSource::~MateriaSource(void) {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; ++i) {
 		delete this->_slot[i];
+		this->_slot[i] = NULL;
+	}
 }
 
 

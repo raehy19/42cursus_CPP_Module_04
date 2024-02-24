@@ -23,10 +23,10 @@ class MateriaSource : public IMateriaSource {
 		MateriaSource(void);
 
 		// 복사 생성자
-		MateriaSource(const MateriaSource &obj);
+		MateriaSource(const MateriaSource &materiaSource);
 
 		// 대입 연산자 오버로딩
-		MateriaSource &operator=(const MateriaSource &obj);
+		MateriaSource &operator=(const MateriaSource &materiaSource);
 
 		// 소멸자
 		virtual ~MateriaSource(void);

@@ -36,9 +36,8 @@ Character &Character::operator=(const Character &character) {
 
 	for (int i = 0; i < 4; ++i) {
 		delete this->_slot[i];
-		if (character.getSlot(i) == NULL)
-			this->_slot[i] = NULL;
-		else
+		this->_slot[i] = NULL;
+		if (character.getSlot(i))
 			this->_slot[i] = character.getSlot(i)->clone();
 	}
 	return (*this);
@@ -46,8 +45,10 @@ Character &Character::operator=(const Character &character) {
 
 // 소멸자
 Character::~Character(void) {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; ++i) {
 		delete this->_slot[i];
+		this->_slot[i] = NULL;
+	}
 }
 
 ///// Member Functions /////
@@ -66,7 +67,7 @@ std::string const &Character::getName() const {
 // equip 함수
 void Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; ++i) {
-		if (this->_slot[i] == NULL) {
+		if (!this->_slot[i]) {
 			this->_slot[i] = m;
 			break;
 		}
