@@ -12,6 +12,9 @@
 
 #pragma once
 #ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
+
+#include "AMateria.hpp"
 
 class IMateriaSource {
 	public:
@@ -22,5 +25,4 @@ class IMateriaSource {
 		virtual AMateria *createMateria(std::string const &type) = 0;
 };
 
-# define IMATERIASOURCE_HPP
-
+#endif

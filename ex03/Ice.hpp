@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 04:24:46 by rjeong            #+#    #+#             */
-/*   Updated: 2024/02/23 04:24:47 by rjeong           ###   ########.fr       */
+/*   Created: 2024/02/23 06:14:26 by rjeong            #+#    #+#             */
+/*   Updated: 2024/02/23 06:14:27 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
 #include "AMateria.hpp"
 
-class AMateria;
-
-class ICharacter {
+class Ice : public AMateria {
 	public:
-		virtual ~ICharacter() {}
+		///// Orthodox Canonical Form /////
+		// 기본 생성자
+		Ice();
 
-		virtual std::string const &getName() const = 0;
+		// 복사 생성자
+		Ice(Ice const &ice);
 
-		virtual void equip(AMateria *m) = 0;
+		// 할당 연산자 오버로딩
+		Ice &operator=(Ice const &ice);
 
-		virtual void unequip(int idx) = 0;
+		// 소멸자
+		virtual ~Ice();
 
-		virtual void use(int idx, ICharacter &target) = 0;
+		///// Member Functions /////
+		// clone : 자신을 복제하는 함수
+		AMateria *clone() const;
+
+		// use : target을 얼리는 함수
+		void use(ICharacter &target);
 };
 
 #endif
